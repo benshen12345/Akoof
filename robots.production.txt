@@ -1,0 +1,11 @@
+# Akoof Food and Beverage Sdn. Bhd.
+# Everything here is meant to be found. The only thing kept out of the index
+# is the company profile PDF: it is a 9 MB download that would otherwise
+# compete with the pages themselves in search results, and it is one revision
+# behind the site by design.
+
+User-agent: *
+Allow: /
+Disallow: /doc/
+
+Sitemap: https://akoof.com/sitemap.xml

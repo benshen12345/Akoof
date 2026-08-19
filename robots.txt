@@ -1,0 +1,8 @@
+# PREVIEW BUILD - not the production file.
+# This copy lives at <username>.github.io/akoof/ and must not be indexed:
+# if Google files this address, it will later compete with akoof.com for the
+# company's own name. Rename robots.production.txt over this file on the day
+# the domain goes live.
+
+User-agent: *
+Disallow: /
