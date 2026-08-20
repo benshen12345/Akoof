@@ -1,0 +1,163 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Akoof — device check</title>
+<style>
+:root{--pad:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:#14100a;color:#EFE7D8;
+  font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  padding:calc(12px + env(safe-area-inset-top,0px)) 12px calc(24px + env(safe-area-inset-bottom,0px))}
+h1{font:600 15px/1.3 ui-monospace,monospace;margin:0 0 10px;color:#D8B463}
+h2{font:600 12px/1.3 ui-monospace,monospace;margin:16px 0 6px;color:#D8B463;
+  border-top:1px solid #3a2f1c;padding-top:10px}
+table{border-collapse:collapse;width:100%}
+td{padding:2px 0;vertical-align:top;word-break:break-all}
+td:first-child{color:#9d8f76;padding-right:10px;white-space:nowrap;width:1%}
+b{color:#FFF3D8}
+.bad{color:#FF9E7A}.ok{color:#8FD69B}
+button{display:block;width:100%;margin:12px 0 0;padding:14px;font:600 14px ui-monospace,monospace;
+  background:#D8B463;color:#1C1206;border:0;border-radius:6px}
+button[disabled]{background:#3a2f1c;color:#9d8f76}
+#warn{border:1px solid #C1663F;background:#2A1A0E;border-radius:6px;
+  padding:12px 14px;margin:0 0 14px;line-height:1.55}
+#warn b{color:#FFB27A;display:block;margin-bottom:6px}
+#warn code{background:#14100a;padding:2px 5px;border-radius:3px;color:#EFE7D8}
+#anch td:first-child{width:34%}
+.note{color:#9d8f76;margin:10px 0 0;font-size:11px;line-height:1.5}
+</style></head><body>
+<h1>AKOOF — DEVICE CHECK</h1>
+<div id="warn" hidden></div>
+<table id="t"></table>
+<h2>ANCHOR LANDING</h2>
+<p class="note">Tap the button. It jumps to each section and measures the gap
+between the top of the viewport and the top of that section. Target is 0 to +8px.
+A big positive number is the "space on top" problem.</p>
+<button id="go">RUN ANCHOR TEST</button>
+<table id="anch"></table>
+<h2>HERO</h2>
+<table id="hero"></table>
+<p class="note">Screenshot this whole page (you may need two shots) and send it back.</p>
+<script>
+const $=(s)=>document.querySelector(s);
+function row(t,k,v,cls){const r=t.insertRow();r.insertCell().textContent=k;
+  const c=r.insertCell();c.innerHTML=cls?`<b class="${cls}">${v}</b>`:`<b>${v}</b>`}
+function px(el,p){return getComputedStyle(el).getPropertyValue(p).trim()}
+function probe(unit){const d=document.createElement('div');
+  d.style.cssText=`position:absolute;visibility:hidden;height:100${unit}`;
+  document.body.appendChild(d);const h=d.getBoundingClientRect().height;d.remove();
+  return Math.round(h*10)/10}
+
+const t=$('#t'), vv=window.visualViewport;
+row(t,'UA',navigator.userAgent);
+row(t,'layout viewport',innerWidth+' x '+innerHeight);
+row(t,'visual viewport',vv?Math.round(vv.width)+' x '+Math.round(vv.height):'n/a');
+row(t,'DPR',devicePixelRatio);
+row(t,'screen',screen.width+' x '+screen.height);
+row(t,'orientation',innerWidth>innerHeight?'landscape':'portrait');
+row(t,'100vh',probe('vh')+'px');
+row(t,'100svh',probe('svh')+'px');
+row(t,'100dvh',probe('dvh')+'px');
+row(t,'100lvh',probe('lvh')+'px');
+const st=getComputedStyle(document.documentElement);
+row(t,'safe-area top',st.getPropertyValue('--pad')||'0px');
+const sw=document.documentElement.scrollWidth;
+row(t,'doc scrollWidth',sw+'px  (viewport '+innerWidth+')',sw>innerWidth+1?'bad':'ok');
+
+// This page measures the REAL page by loading index.html into a hidden iframe
+// and reading its computed styles. That is a same-origin read, and file:// gives
+// every file its own opaque origin - so opening this by double-clicking makes
+// contentDocument null and every site-specific row fails. Say so in words
+// rather than printing a null-dereference at the user.
+if (location.protocol === 'file:') {
+  const w = $('#warn'); w.hidden = false;
+  w.innerHTML = '<b>Open this over http, not by double-clicking the file.</b>' +
+    'Everything above this line is correct - viewport, svh/dvh, safe area, DPR. ' +
+    'The rows below need to read index.html, and a browser will not allow that ' +
+    'between two <code>file://</code> pages.<br><br>' +
+    'Use the published address:<br>' +
+    '<code>https://benshen12345.github.io/Akoof/check.html</code><br><br>' +
+    'Or serve the folder locally:<br>' +
+    '<code>cd C:\\Akoof\\akoof-deploy</code><br>' +
+    '<code>python -m http.server 8899</code><br>' +
+    'then open <code>http://localhost:8899/check.html</code>';
+  const b = $('#go'); b.disabled = true; b.textContent = 'ANCHOR TEST NEEDS http';
+} else {
+const f=document.createElement('iframe');
+f.style.cssText='position:fixed;left:-9999px;top:0;width:'+innerWidth+'px;height:'+innerHeight+'px;border:0';
+f.src='index.html';
+document.body.appendChild(f);
+f.onload=()=>{
+  try{
+    const d=f.contentDocument, w=f.contentWindow;
+    const dh=d.documentElement, hdr=d.querySelector('header');
+    row(t,'--hdr-h (var)',getComputedStyle(dh).getPropertyValue('--hdr-h').trim()||'(unset)');
+    row(t,'header real height',hdr?Math.round(hdr.getBoundingClientRect().height)+'px':'n/a');
+    row(t,'scroll-padding-top',getComputedStyle(dh).scrollPaddingTop);
+    const sec=d.querySelector('#packs');
+    row(t,'section min-height',sec?getComputedStyle(sec).minHeight:'n/a');
+    row(t,'section real height',sec?Math.round(sec.getBoundingClientRect().height)+'px':'n/a');
+
+    const h=$('#hero'), h1=d.querySelector('.hero h1'), lede=d.querySelector('.hero .lede');
+    if(h1){const b=h1.getBoundingClientRect();
+      row(h,'h1 font-size',getComputedStyle(h1).fontSize);
+      row(h,'h1 line-height',getComputedStyle(h1).lineHeight);
+      row(h,'h1 box',Math.round(b.width)+' x '+Math.round(b.height));
+      row(h,'h1 top / bottom',Math.round(b.top)+' / '+Math.round(b.bottom));
+      row(h,'h1 text',h1.textContent.trim().replace(/\s+/g,' '));}
+    if(lede){const b=lede.getBoundingClientRect();
+      row(h,'lede box',Math.round(b.width)+' x '+Math.round(b.height));
+      row(h,'lede bottom',Math.round(b.bottom));}
+    const heroEl=d.querySelector('.hero');
+    if(heroEl){const b=heroEl.getBoundingClientRect();
+      row(h,'hero height',Math.round(b.height)+'px');
+      row(h,'fits one screen?',b.height<=w.innerHeight?'yes':'NO, overflows by '+Math.round(b.height-w.innerHeight)+'px',
+        b.height<=w.innerHeight?'ok':'bad');}
+    const cta=d.querySelector('.hero-cta');
+    if(cta){const b=cta.getBoundingClientRect();
+      row(h,'cta bottom vs screen',Math.round(b.bottom)+' / '+w.innerHeight,
+        b.bottom<=w.innerHeight?'ok':'bad');}
+
+    $('#go').onclick=()=>{
+      const a=$('#anch'); a.innerHTML='';
+      // smooth scrolling would make every reading a mid-flight number
+      dh.style.scrollBehavior='auto';
+      const ids=['lines','clients','vending','packs','compliance','contact'];
+      let i=0;
+      const settle=(cb)=>{               // poll until scrollY stops moving
+        let last=-1,n=0;
+        const tick=()=>{const y=w.scrollY;
+          if(y===last){if(++n>=3)return cb();}else{last=y;n=0;}
+          setTimeout(tick,90)};
+        tick();
+      };
+      const step=()=>{
+        if(i>=ids.length)return;
+        const id=ids[i++];
+        w.scrollTo(0,0);
+        setTimeout(()=>{
+          w.location.hash='';
+          w.location.hash='#'+id;
+          settle(()=>{
+            const el=d.getElementById(id);
+            if(!el){row(a,'#'+id,'not found','bad');return step()}
+            const gap=Math.round(el.getBoundingClientRect().top);
+            const hh=hdr?Math.round(hdr.getBoundingClientRect().height):0;
+            const moved=w.scrollY>0;
+            row(a,'#'+id, !moved?'did not scroll':(gap+'px below viewport top (header is '+hh+')'),
+              moved&&gap>=hh-6&&gap<=hh+14?'ok':'bad');
+            step();
+          });
+        },60);
+      };
+      step();
+    };
+  }catch(e){
+    const w=$('#warn'); w.hidden=false;
+    w.innerHTML='<b>Could not read index.html from this page.</b>'+e.message+
+      '<br><br>index.html must sit in the same folder as this file, and both must '+
+      'be served over http.';
+  }
+};
+}
+</script></body></html>
