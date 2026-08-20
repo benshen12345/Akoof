@@ -264,6 +264,35 @@ section{padding:var(--sec) 0;position:relative;overflow:hidden;z-index:0;
   min-height:calc(100vh - var(--hdr-h, 78px));
   min-height:calc(100svh - var(--hdr-h, 78px));
   display:flex;flex-direction:column;justify-content:center}
+
+/* ---------- the seam between two grounds (20 Aug 2026) ----------
+   Ben: "the section between each part can make them more smoother cause now
+   the line is too visible".
+
+   Two things at once, and the first was literal: .g-sand carried
+   `border-top:1px solid var(--line-2)` and .g-deep a 1px gold one, so on top
+   of a colour step there was an actual drawn line. Both removed.
+
+   What is left is the step itself - #241708 to #2F1F0D to #1C1206. It is
+   blended with an inset shadow in the PREVIOUS section's colour: the top 96px
+   of each section starts at the colour above it and resolves into its own, so
+   the eye reads one long gradient instead of an edge.
+
+   box-shadow rather than a pseudo-element: ::before is the ground sweep and
+   ::after is the light layer, both already taken. An inset shadow is also not
+   clipped by the section's own overflow:hidden.
+
+   Where a section follows one of its own colour the shadow is invisible,
+   which is why the rule can stay uniform. */
+section,footer{--prev:transparent;
+  box-shadow:inset 0 96px 74px -62px var(--prev)}
+#lines     {--prev:var(--deep)}    /* out of the cover */
+#clients   {--prev:var(--cream)}
+#vending   {--prev:var(--sand)}    /* same tone - no visible seam */
+#packs     {--prev:var(--sand)}
+#compliance{--prev:var(--deep)}
+#contact   {--prev:var(--cream)}   /* same tone */
+footer     {--prev:var(--cream)}
 /* ==========================================================
    SECTION LIGHT — added 18 Aug 2026
    Ben: "can i have a better background creative design, now it's look a bit
@@ -385,13 +414,13 @@ section > .wrap{z-index:2;width:100%}
    it. Re-toning or moving a section then updates its wallpaper automatically,
    instead of leaving a scrim tinted for the ground it used to sit on. */
 .g-cream{background:var(--cream);--g:36,23,8}
-.g-sand{background:var(--sand);--g:47,31,13;border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.g-sand{background:var(--sand);--g:47,31,13}
 .g-white{background:var(--white);--g:57,39,15;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 /* A fourth tone. Three paper tones give the page rhythm but no punctuation;
    one dark stop in the middle of the run is what stops eight cream sections
    reading as one long scroll. Only the packs use it - a transparent cut-out
    with gold and red in it goes flat on cream and lights up on this. */
-.g-deep{background:var(--deep);--g:28,18,6;border-top:1px solid rgba(216,180,99,.28);border-bottom:1px solid rgba(216,180,99,.28)}
+.g-deep{background:var(--deep);--g:28,18,6}
 /* the packs section is the darkest stop on the page, which is what makes the
    cut-out artwork glow rather than merely sit there */
 .g-deep .motif{opacity:.055}
@@ -1758,7 +1787,7 @@ footer .soc a:hover{color:var(--gold-lt);border-color:var(--gold);background:rgb
     position:static !important;inset:auto !important;transform:none !important;content:none}
   .hero{min-height:0;margin-top:0;padding:0 0 18pt;background:#fff}
   .hero h1,.hero .lede,.stat b,.stat>span,.vend *,.verify *,footer *{color:#111 !important}
-  section,.hero,footer{padding:14pt 0 !important;border:0 !important;break-inside:auto}
+  section,.hero,footer{padding:14pt 0 !important;border:0 !important;box-shadow:none !important;break-inside:auto}
   a{color:#111;text-decoration:none}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#555}
   table{min-width:0;font-size:9pt}
@@ -2090,6 +2119,11 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
   <section id="lines" class="g-cream">
     <div class="wall wall-2" aria-hidden="true"><img src="./img/f-grill-fish.webp" alt="" loading="lazy" width="764" height="478"></div>
     <div class="ghost" style="font-size:clamp(90px,14vw,210px);left:-3%;bottom:3%">SERVICES</div>
+    <!-- The engraved food pattern was on four sections and missing from this
+         one and #contact, so those two read as the plain ones. Added 20 Aug.
+         It sits after .wall so it lies over the photograph - the same order
+         #vending and .dl already use. -->
+    <div class="motif motif-soft" aria-hidden="true"></div>
     <div class="wrap">
       <!-- Rebuilt 18 Aug 2026. Ben: "the services section is too simple".
            Measured before changing anything: of the six sections this was the
@@ -3235,6 +3269,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
   <!-- ================= CONTACT ================= -->
   <section id="contact" class="g-cream">
     <div class="wall wall-side" aria-hidden="true"><img src="./img/p-salad.webp" alt="" loading="lazy" width="1200" height="560"></div>
+    <div class="motif motif-soft" aria-hidden="true"></div>
     <div class="wrap">
       <div class="section-head rv rv-seq" style="margin-bottom:28px">
         <h2>Running a canteen tender?</h2>
