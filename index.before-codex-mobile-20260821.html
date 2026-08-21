@@ -64,7 +64,7 @@
   "url": "https://akoof.com/",
   "logo": "https://akoof.com/img/logo.png",
   "image": "https://akoof.com/img/share-1200x630.png",
-  "description": "Halal-certified industrial catering, vending and frozen food in Bayan Lepas, Penang. Factory cafeteria contracts, vending routes and frozen Halal snacks, with every certificate number and expiry published.",
+  "description": "Halal-certified industrial catering, vending and frozen food in Bayan Lepas, Penang. Factory canteen contracts, vending routes and frozen Halal snacks, with every certificate number and expiry published.",
   "servesCuisine": ["Malaysian", "Indian", "Halal"],
   "address": {
     "@type": "PostalAddress",
@@ -433,12 +433,6 @@ section > .wrap{z-index:2;width:100%}
    so all this did was wrap the heading: "Three factory canteens, running right
    now." needs about 880px at 46px and was being held to 672. */
 .section-head{margin-bottom:clamp(28px,3.4vw,42px)}
-/* One description rhythm across the page. Headings and their introductory
-   copy share a left edge, while the gap between them scales once instead of
-   being rebuilt with negative margins in each section. Footnotes, legal notes
-   and card copy keep their own tighter hierarchy. */
-.section-head>h2{margin-bottom:0}
-.section-head>.lede{margin:clamp(14px,1.6vw,20px) 0 0}
 
 /* ---------------- buttons ---------------- */
 .btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;border-radius:var(--r);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .28s,color .28s,border-color .28s}
@@ -765,8 +759,8 @@ header.over .btn-icon:hover{color:var(--gold-lt);border-color:var(--gold-lt)}
    while the right stays legible as picture. A single flat overlay dark enough
    for the text turns the whole cover into a grey slab. */
 .hero .veil{position:absolute;inset:0;z-index:1;
-  background:linear-gradient(180deg,rgba(20,12,5,.64) 0%,rgba(20,12,5,.36) 26%,rgba(20,12,5,.52) 62%,rgba(24,15,7,.90) 100%),
-             linear-gradient(88deg,rgba(24,15,7,.78) 0%,rgba(24,15,7,.46) 46%,rgba(24,15,7,.08) 88%)}
+  background:linear-gradient(180deg,rgba(20,12,5,.70) 0%,rgba(20,12,5,.42) 26%,rgba(20,12,5,.58) 62%,rgba(24,15,7,.94) 100%),
+             linear-gradient(88deg,rgba(24,15,7,.86) 0%,rgba(24,15,7,.54) 46%,rgba(24,15,7,.10) 88%)}
 
 
 .hero .kicker{color:var(--gold-lt)}
@@ -1058,10 +1052,9 @@ footer p{color:rgba(255,255,255,.7)}
 /* ---------- wave dividers ---------- */
 
 /* ---------- section head variants ---------- */
-.head-xl{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,44px);align-items:end;margin-bottom:clamp(30px,3.6vw,42px)}
+.head-xl{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,44px);align-items:end;margin-bottom:clamp(34px,5vw,56px)}
 .head-xl .no{font:600 clamp(48px,8vw,104px)/.8 var(--display);color:var(--gold);letter-spacing:-.02em;opacity:.9}
-.head-xl h2,.head-xl h3{margin:0}
-.head-xl .lede{margin:clamp(14px,1.6vw,20px) 0 0}
+.head-xl h2{margin:0}
 
 /* ---------- menu rail ---------- */
 .rail{position:relative;z-index:2}
@@ -1203,13 +1196,6 @@ a.row:hover{color:var(--gold)}
   font-style:normal;color:#75654B;border:1px solid #BFAC89;border-radius:100px;padding:5px 10px}
 .logos li:has(em:not(:empty)) em{transition:color .35s,border-color .35s}
 .logos li:hover em{color:#8a6a1f;border-color:var(--gold)}
-
-/* Phone-only relationship switcher. The desktop wall remains one six-logo
-   band; on a narrow screen the visitor can choose the two relationships
-   instead of reading a three-row wall. JavaScript adds .logo-filtered only
-   after the controls are live, so every logo remains available without JS. */
-.logo-tabs{display:none}
-.logo-tabs button{font:600 10.5px/1 var(--sans);letter-spacing:.13em;text-transform:uppercase}
 
 /* A stated limit, set as a note rather than a claim. Two columns: the label
    is the thing a scanning reader needs, the body is for whoever stops. */
@@ -1449,17 +1435,16 @@ a.row:hover{color:var(--gold)}
      in a column. On a phone the type is full width, so that pass does nothing
      where it is needed and the food reads straight through the headline. One
      flat scrim instead, heavy enough to carry white serif over a busy field. */
-  .hero .veil{background:linear-gradient(180deg,rgba(20,12,5,.74) 0%,rgba(20,12,5,.64) 30%,rgba(20,12,5,.74) 66%,rgba(24,15,7,.92) 100%),
-                         linear-gradient(0deg,rgba(24,15,7,.18),rgba(24,15,7,.18))}
-  .panels{grid-template-columns:1fr;gap:24px}
+  .hero .veil{background:linear-gradient(180deg,rgba(20,12,5,.82) 0%,rgba(20,12,5,.74) 30%,rgba(20,12,5,.82) 66%,rgba(24,15,7,.96) 100%),
+                         linear-gradient(0deg,rgba(24,15,7,.32),rgba(24,15,7,.32))}
+  .panels{grid-template-columns:1fr;gap:12px}
   /* one per row means the photo gets the full column, which is wider than the
      source file - hold it to a letterbox so it is not stretched tall too */
-  .panel img{aspect-ratio:16/10}
+  .panel img{aspect-ratio:21/9}
 }
 
 /* ---------- live sites ---------- */
 .sites{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);position:relative;z-index:2}
-.mobile-rail-head{display:none}
 /* Flex column so the registration block can be pinned to the bottom: the
    three cards carry registration lines of different lengths, and a grid row
    stretches them to equal height, which left one card's certificate number
@@ -1537,8 +1522,6 @@ a.row:hover{color:var(--gold)}
 .vend .kicker{color:var(--gold-lt)}
 .vend .kicker::before{background:var(--gold-lt)}
 .vend .lede{color:rgba(255,255,255,.74)}
-.vgrid h2{margin-bottom:0}
-.vgrid h2+.lede{margin:clamp(14px,1.6vw,20px) 0 0}
 .vstats{display:flex;gap:clamp(20px,3vw,44px);margin-top:clamp(26px,3.2vw,36px);flex-wrap:wrap}
 .vstat b{display:block;font:600 clamp(30px,4vw,52px)/1 var(--display);color:var(--gold-lt);letter-spacing:-.02em}
 .vstat span{display:block;font:600 10.5px/1.4 var(--sans);letter-spacing:.15em;text-transform:uppercase;
@@ -1709,85 +1692,13 @@ footer .soc a:hover{color:var(--gold-lt);border-color:var(--gold);background:rgb
   .logos li[style]{grid-column:auto!important}
   .logos li{min-height:96px;padding:22px 14px}
   .logos img{max-height:34px}
-
-  /* Live sites become a compact, touch-native rail. The visible edge of the
-     next card is the swipe cue; the arrows offer the same action by tap. */
-  .site-rail{position:relative}
-  .mobile-rail-head{display:block;position:absolute;inset:0;z-index:4;
-    margin:0;pointer-events:none}
-  .mobile-rail-head span{display:none}
-  .rail-buttons{position:absolute;left:8px;right:8px;top:50%;
-    transform:translateY(-50%);display:flex;justify-content:space-between;
-    pointer-events:none}
-  .rail-buttons button{position:relative;width:44px;height:44px;border:1px solid rgba(255,255,255,.22);
-    border-radius:100%;background:rgba(37,23,8,.38);color:rgba(255,255,255,.62);
-    box-shadow:0 3px 10px rgba(31,18,5,.12);backdrop-filter:blur(4px);
-    font-size:0;cursor:pointer;pointer-events:auto;opacity:.58;
-    transition:opacity .35s ease,transform .35s var(--ease),background .35s ease,border-color .35s ease}
-  .rail-buttons button::before{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;
-    border-top:1.5px solid currentColor;border-right:1.5px solid currentColor}
-  .rail-buttons button[data-site-step="-1"]::before{transform:translate(-35%,-50%) rotate(-135deg)}
-  .rail-buttons button[data-site-step="1"]::before{transform:translate(-65%,-50%) rotate(45deg)}
-  .rail-buttons button:hover,.rail-buttons button:focus-visible{opacity:.88;background:rgba(37,23,8,.62);border-color:rgba(255,255,255,.38)}
-  .rail-buttons button:active{transform:scale(.95);background:rgba(37,23,8,.72)}
-  .rail-buttons button:disabled{opacity:0;pointer-events:none}
-  .rail-buttons button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-  .sites{grid-template-columns:none;grid-auto-flow:column;
-    grid-auto-columns:100%;gap:12px;overflow-x:auto;
-    scroll-snap-type:x mandatory;scroll-padding-inline:0;padding:0 0 9px;
-    overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;
-    scrollbar-width:none}
-  .sites::-webkit-scrollbar{display:none}
-  .site{scroll-snap-align:start;scroll-snap-stop:always}
-
-  /* The numbered register keeps its count and claim on one row on phones.
-     Other head-xl blocks may still stack when that gives their copy more room. */
-  .head-xl-inline{grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:start}
-  .head-xl-inline>div:last-child{min-width:0}
-  .head-xl-inline .no{font-size:clamp(48px,14vw,68px);line-height:.86}
-
-  /* Four equal photographs in a deliberate 2 x 2 block, followed by the note.
-     This replaces the accidental 3 + 1 wrap seen on the phone. */
-  .canteens{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;
-    align-items:start}
-  .canteens figure{width:min(100%,132px);justify-self:center}
-  .canteens .cnote{grid-column:1/-1;min-width:0}
-
-  .logo-tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;
-    margin:0 0 12px;padding:5px;border:1px solid var(--line);
-    background:rgba(255,255,255,.34);position:relative;z-index:3}
-  .logo-tabs button{min-height:44px;border:1px solid transparent;background:transparent;
-    color:var(--muted);cursor:pointer}
-  .logo-tabs button[aria-pressed="true"]{background:var(--paper);
-    border-color:var(--line-2);color:#2B1D0E;box-shadow:0 6px 16px rgba(50,31,9,.08)}
-  #clients.logo-filtered .logos li[data-rel]:not(.is-active-logo){display:none}
-  #clients.logo-filtered .logos{grid-template-columns:1fr 1fr}
   /* 2x2 on a phone: four columns of numbers would each be ~70px wide */
   .stats{grid-template-columns:1fr 1fr;gap:0}
   .stat{padding:20px 14px 22px 0}
   .stat:nth-child(2n){padding-left:16px;border-left:1px solid rgba(255,255,255,.13)}
   .stat:nth-child(2n+1){padding-left:0;border-left:0}
   .stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.13);padding-top:20px}
-  /* The three vending facts are one comparison, so keep them on one phone row
-     instead of allowing the third figure to fall underneath the first two. */
-  .vstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-  .vstat{min-width:0}
-  .vstat b{font-size:clamp(24px,7.6vw,31px)}
-  .vstat span{font-size:9px;letter-spacing:.1em}
-
-  /* The supplied square artwork already includes the patterned red field.
-     Pull it back on phones so the pack reads as an object on that field rather
-     than filling the card edge to edge. */
-  .pcard .pv{background:#7F1418}
-  .pcard img{transform:scale(.86)}
-  .pcard:hover img{transform:scale(.90)}
-}
-
-/* A tall phone has enough glass for the full cover but the flex-end alignment
-   leaves the pitch feeling anchored too low. Lift the complete block as one;
-   short phones retain their separately measured treatment below. */
-@media (max-width:640px) and (min-height:701px){
-  .hero .wrap{transform:translateY(-clamp(36px,6svh,58px))}
+  .vstats{gap:22px}
 }
 
 /* ---------- the cover on a small phone ----------
@@ -2024,14 +1935,12 @@ footer .soc a:hover{color:var(--gold-lt);border-color:var(--gold);background:rgb
    Sized here to 34px so the ladder is 46 / 34 / 23. Semantics unchanged. */
 .chap>h3,.chap .head-xl h3{font-size:clamp(21px,2.6vw,34px);letter-spacing:-.012em}
 .chap>h3{margin-bottom:clamp(14px,1.6vw,20px)}
-.chap>h3+.lede{margin:0 0 clamp(30px,3.6vw,42px)}
 
 /* register table */
-/* Contain only the sideways axis. Containing both axes trapped an Android
-   vertical gesture whenever it began on a table cell, so the page appeared
-   frozen until the finger moved outside the register. */
-.tablewrap{overflow-x:auto;overscroll-behavior-inline:contain;overscroll-behavior-block:auto;
-  touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch;
+/* overscroll-behavior:contain stops a fast sideways swipe on the certificate
+   table from carrying the whole page with it once the table hits its end - on
+   a phone that reads as the page lurching, not as a table that has finished. */
+.tablewrap{overflow-x:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
   border:1px solid var(--line);background:var(--white);border-radius:var(--r)}
 table{border-collapse:collapse;width:100%;min-width:960px;font-size:14.5px}
 thead th{text-align:left;font:600 10.5px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;
@@ -2106,7 +2015,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
            duplicate: it is the only email entry above the fold, and a
            procurement officer working inside a tender file needs an address
            they can attach a document to. -->
-      <a class="btn-icon" href="mailto:exec@akoof.com?subject=Cafeteria%20enquiry" aria-label="Email the tender desk" title="exec@akoof.com">
+      <a class="btn-icon" href="mailto:exec@akoof.com?subject=Canteen%20enquiry" aria-label="Email the tender desk" title="exec@akoof.com">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
       </a>
       <button id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -2152,7 +2061,9 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
     <div class="wrap">
       <h1 class="rise" id="heroH1"></h1>
       <p class="lede">
-        Factory cafeterias, vending and frozen food. Halal certified, with every certificate published.
+        Factory canteens, vending and frozen food. All of it Halal certified, and all of it
+        checkable. We publish every certificate number, scope and expiry date, so you can look
+        us up on the government registry before we ever meet.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary btn-lg sheen-btn" id="waHero" href="#"><span>Talk to us on WhatsApp</span></a>
@@ -2240,12 +2151,13 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       <div class="head-xl rv rv-seq">
         <div>
           <h2 class="gsweep">Three ways we feed a factory.</h2>
-          <p class="lede">
-            One certified menu, delivered three ways: a cafeteria we staff, a machine that cooks,
-            or a frozen pack.
-          </p>
         </div>
       </div>
+      <p class="lede rv" style="margin:-24px 0 clamp(30px,3.6vw,42px)">
+        All three draw on the same certified list under the same JAKIM reference.
+        What changes is how the food reaches the floor: a canteen we staff, a machine
+        that cooks, or a pack that keeps.
+      </p>
       <!-- Card order is catering, vending, frozen - the order of the business,
            and now also the order of the page: #clients is section 2, #vending
            section 4, #packs section 5. Click the first card and it moves down
@@ -2266,14 +2178,14 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
                perspective. Laplacian sharpness 3205 against the old 120. -->
           <picture>
             <source media="(max-width:640px)" srcset="./img/f-counter-line-sm.webp">
-            <img src="./img/f-counter-line.webp" alt="An Akoof cafeteria serving counter, trays of fried noodles and dishes under a sneeze guard with handwritten price cards" loading="lazy" width="1200" height="750"></picture>
+            <img src="./img/f-counter-line.webp" alt="An Akoof canteen serving counter, trays of fried noodles and dishes under a sneeze guard with handwritten price cards" loading="lazy" width="1200" height="750"></picture>
           <div class="pin">
             <div class="phead"><i>01</i><b>3 plants today</b></div>
             <h3>Industrial catering</h3>
             <!-- the trailing "Three plants today." came out when the running
                  head above started carrying "3 plants today". -->
-            <span class="fact">We run the cafeteria: staff, menu, service and cleaning across Malay,
-              Chinese, Indian and Western food.</span>
+            <span class="fact">We run the canteen: staff, menu, service, cleaning. Malay, Chinese,
+              Indian and Western, every dish drawn from the certified list.</span>
             <span class="go">See the sites →</span>
           </div>
         </a>
@@ -2295,8 +2207,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           <div class="pin">
             <div class="phead"><i>02</i><b>24 hours a day</b></div>
             <h3>Vending</h3>
-            <span class="fact">Machines for shifts that run beyond cafeteria hours, including the
-              fresh-fry unit.</span>
+            <span class="fact">We build the machines, not just fill them. That includes the
+              fresh-fry unit Bernama called the first of its kind in Malaysia.</span>
             <span class="go">35 seconds to hot →</span>
           </div>
         </a>
@@ -2314,7 +2226,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           <div class="pin">
             <div class="phead"><i>03</i><b>4 lines, 1 in production</b></div>
             <h3>Frozen food</h3>
-            <span class="fact">Made in our kitchen and packed here under Akoof's own label.</span>
+            <span class="fact">Four lines under our own label, made in our kitchen and packed
+              here. Roti Canai is in production; the other three are through design.</span>
             <span class="go">See the packs →</span>
           </div>
         </a>
@@ -2350,60 +2263,54 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
   <section id="clients" class="g-sand">
     <div class="motif motif-soft" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="section-head rv rv-seq">
-        <h2><span class="gsweep">3</span> factory cafeterias, running right now.</h2>
+      <div class="section-head rv rv-seq" style="margin-bottom:34px">
+        <h2>3 factory canteens, running right now.</h2>
         <!-- "and every one of those numbers is in the register further down
              this page" came out on 18 Aug. Not only for height: the footnote at
              the bottom of this same section already reads "Every certificate
              number is printed in the register below", so the lede was
              announcing what the footnote states. Cutting the lede's copy of it
              is what let the footnote itself finish inside one screen. -->
-        <p class="lede">Each current site carries its own Ministry of Health premises certificate.</p>
+        <p class="lede">Not a list of names we once quoted for. These are the sites we operate
+          today, each registered with the Ministry of Health under its own premises
+          certificate.</p>
       </div>
 
-      <div class="site-rail">
-        <div class="mobile-rail-head" aria-hidden="false">
-          <span>Swipe through current sites</span>
-          <div class="rail-buttons">
-            <button type="button" data-site-step="-1" aria-label="Previous current site">&#8249;</button>
-            <button type="button" data-site-step="1" aria-label="Next current site">&#8250;</button>
-          </div>
+      <div class="sites rv rv-1by1" data-d="1">
+        <div class="site">
+          <h3>Analog Devices</h3><span class="kind">Cafeteria management</span>
+          <dl>
+            <dt>Largest site</dt><dd><b>1,200</b></dd>
+            <dt>With us</dt><dd>1 year</dd>
+          </dl>
+          <span class="reg"><em>Food premises registration</em><code>FSSM052605766-0</code><i>Valid to 21 May 2029</i></span>
         </div>
-        <div class="sites rv rv-1by1" data-d="1" data-scroll-hint role="region" aria-label="Current factory cafeterias" tabindex="0">
-          <div class="site">
-            <h3>Analog Devices</h3><span class="kind">Cafeteria management</span>
-            <dl>
-              <dt>Largest site</dt><dd><b>1,200</b></dd>
-              <dt>With us</dt><dd>1 year</dd>
-            </dl>
-            <span class="reg"><em>Food premises registration</em><code>FSSM052605766-0</code><i>Valid to 21 May 2029</i></span>
-          </div>
-          <div class="site">
-            <h3>Lumileds</h3><span class="kind">Cafeteria management, two plants</span>
-            <dl>
-              <dt>Largest site</dt><dd><b>1,000</b></dd>
-              <dt>With us</dt><dd>3 years</dd>
-            </dl>
-            <span class="reg"><em>Food premises registration</em><code>FSSM092301293-0</code><i>P2 plant, Bayan Lepas</i></span>
-          </div>
-          <div class="site">
-            <h3>Iotronix</h3><span class="kind">Cafeteria management</span>
-            <dl>
-              <dt>Largest site</dt><dd><b>500</b></dd>
-              <dt>With us</dt><dd>2 years</dd>
-            </dl>
-            <span class="reg"><em>Food premises registration</em><code>FSSM032500982-0</code><i>Valid to 10 Mar 2028</i></span>
-          </div>
+        <div class="site">
+          <h3>Lumileds</h3><span class="kind">Cafeteria management, two plants</span>
+          <dl>
+            <dt>Largest site</dt><dd><b>1,000</b></dd>
+            <dt>With us</dt><dd>3 years</dd>
+          </dl>
+          <span class="reg"><em>Food premises registration</em><code>FSSM092301293-0</code><i>P2 plant, Bayan Lepas</i></span>
+        </div>
+        <div class="site">
+          <h3>Iotronix</h3><span class="kind">Cafeteria management</span>
+          <dl>
+            <dt>Largest site</dt><dd><b>500</b></dd>
+            <dt>With us</dt><dd>2 years</dd>
+          </dl>
+          <span class="reg"><em>Food premises registration</em><code>FSSM032500982-0</code><i>Valid to 10 Mar 2028</i></span>
         </div>
       </div>
 
       <div class="canteens">
         <figure><img src="./img/t-hall.webp" alt="A factory staff cafeteria at lunch" loading="lazy" width="300" height="300"><figcaption>Cafeteria</figcaption></figure>
-        <figure><img src="./img/t-canteen.webp" alt="A construction site cafeteria at lunch" loading="lazy" width="300" height="300"><figcaption>Site cafeteria</figcaption></figure>
+        <figure><img src="./img/t-canteen.webp" alt="A construction site canteen at lunch" loading="lazy" width="300" height="300"><figcaption>Site canteen</figcaption></figure>
         <figure><img src="./img/t-bain.webp" alt="A serving counter set with kuih and fried snacks" loading="lazy" width="300" height="300"><figcaption>Serving line</figcaption></figure>
         <figure><img src="./img/t-satay.webp" alt="Satay cooking over charcoal" loading="lazy" width="300" height="300"><figcaption>Grill</figcaption></figure>
-        <p class="cnote">The three sites above are not pictured because those contracts are under
-          non-disclosure. We publish only photographs Akoof has permission to show.</p>
+        <p class="cnote">Plants we run, and our own kitchen. The three sites named above are not
+          pictured: those contracts are under non-disclosure, and we would rather show you nothing
+          than publish something we were not given permission to.</p>
       </div>
 
       <!-- These used to read "on our compliance page". After the merge on
@@ -2450,19 +2357,17 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
            re-add any of the three without a written instruction. -->
       <div class="section-head rv rv-seq" data-d="2" style="margin:clamp(52px,6vw,78px) 0 30px">
         <h2>The logos, and what each one is.</h2>
-        <p class="lede">Only confirmed relationships are shown: two current and four past.</p>
+        <p class="lede">A logo wall usually implies more than it means, so this one is labelled.
+          Analog Devices and Lumileds are two of the three canteens we run today. Jabil, ASE
+          Group, Bosch and Molex are past customers. That is the whole list.</p>
       </div>
-      <div class="logo-tabs" role="group" aria-label="Customer relationship">
-        <button type="button" aria-pressed="true" data-logo-tab="current">Current (2)</button>
-        <button type="button" aria-pressed="false" data-logo-tab="past">Past (4)</button>
-      </div>
-      <ul class="logos rv rv-1by1" data-d="3" role="list" aria-live="polite">
-        <li data-rel="current"><img class="tall" src="./img/logo/analog.webp" alt="Analog Devices" loading="lazy" width="520" height="154"><em>Current</em></li>
-        <li data-rel="current"><img src="./img/logo/lumileds.webp" alt="Lumileds" loading="lazy" width="520" height="85"><em>Current</em></li>
-        <li data-rel="past"><img src="./img/logo/jabil.webp" alt="Jabil" loading="lazy" width="520" height="87"><em>Past</em></li>
-        <li data-rel="past"><img class="tall" src="./img/logo/ase.webp" alt="ASE Group" loading="lazy" width="520" height="155"><em>Past</em></li>
-        <li data-rel="past"><img src="./img/logo/bosch.webp" alt="Bosch" loading="lazy" width="520" height="116"><em>Past</em></li>
-        <li data-rel="past"><img class="tall" src="./img/logo/molex.webp" alt="Molex" loading="lazy" width="520" height="390"><em>Past</em></li>
+      <ul class="logos rv rv-1by1" data-d="3" role="list">
+        <li><img class="tall" src="./img/logo/analog.webp" alt="Analog Devices" loading="lazy" width="520" height="154"><em>Current</em></li>
+        <li><img src="./img/logo/lumileds.webp" alt="Lumileds" loading="lazy" width="520" height="85"><em>Current</em></li>
+        <li><img src="./img/logo/jabil.webp" alt="Jabil" loading="lazy" width="520" height="87"><em>Past</em></li>
+        <li><img class="tall" src="./img/logo/ase.webp" alt="ASE Group" loading="lazy" width="520" height="155"><em>Past</em></li>
+        <li><img src="./img/logo/bosch.webp" alt="Bosch" loading="lazy" width="520" height="116"><em>Past</em></li>
+        <li><img class="tall" src="./img/logo/molex.webp" alt="Molex" loading="lazy" width="520" height="390"><em>Past</em></li>
       </ul>
       <p class="scrollhint" style="margin-top:18px;font-size:13px;color:var(--hint)">
         Logos are the property of their respective owners and are shown with Akoof&#39;s
@@ -2515,8 +2420,10 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         <div class="vgrid">
           <div>
             <h2>Malaysia&#39;s first frying vending machine.</h2>
-            <p class="lede">A working fryer sits behind the glass: you pay, it cooks, and a hot
-              portion drops about half a minute later. It was built for shifts that outlast the cafeteria.</p>
+            <p class="lede">Not a chiller with a spiral. A working fryer behind glass: you pay, it
+              cooks, and about half a minute later a hot portion drops. Bernama reported it in
+              November 2019 as the first of its kind in the country. Night shift is the reason
+              it exists.</p>
             <div class="vstats">
               <div class="vstat"><b class="gsweep">35<small style="font-size:.42em;letter-spacing:.08em;margin-left:.2em">SEC</small></b><span>From payment to hot</span></div>
               <div class="vstat"><b class="gsweep">RM3</b><span>Launch price</span></div>
@@ -2540,9 +2447,9 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           </div>
         </div>
         <p class="vnote">
-          <b>Akoof manufactures as well as fills them.</b> The range includes snack and drink units,
-          factory mini-markets and the 24-hour smart kitchen. Bernama reported the fresh-fry unit
-          on 11 November 2019, first sited at KOMTAR, Penang.
+          <b>We build them as well as fill them.</b> Akoof supplies and manufactures vending
+          machines: snack and drink units, mini-market fit-outs inside factories, and the
+          24-hour smart kitchen. Reported by Bernama, 11 November 2019, first sited at KOMTAR, Penang.
         </p>
       </div>
     </div>
@@ -2576,9 +2483,10 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
            these packs too, but Hari confirmed on 2 Aug 2026 that MeSTI, HACCP
            and ISO 22000 are all still IN PROGRESS - so the site does not cite
            the mark as a credential. See open issue B7.) -->
-      <div class="section-head rv rv-seq">
+      <div class="section-head rv rv-seq" style="margin-bottom:0">
         <h2>Under our own label.</h2>
-        <!-- This paragraph used to say all four were printed film you could scan
+      </div>
+      <!-- This paragraph used to say all four were printed film you could scan
            in an aisle. Akoof confirmed on 6 Aug 2026 that only Roti Canai is in
            production - the other three artworks are the designer's mock-ups,
            pending the boss's approval, then Dewan Bahasa endorsement of the
@@ -2587,7 +2495,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
            disbelieved. Saying where each one actually stands is both honest and
            the better story: three lines are coming, not three lines pretending
            to be here. -->
-        <p class="lede">
+      <p class="lede" style="margin:-14px 0 clamp(24px,2.8vw,36px)">
         <!-- 59 words down to 47 on 18 Aug. Ben: "i think because the word is too
              long or big, can summarise if needed".
              "Four lines under our own label." went first: it is the H2 directly
@@ -2600,8 +2508,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
         JAKIM reference and barcode printed on the film. The other three are through design,
         waiting on approval, Dewan Bahasa endorsement and lab analysis. We show them as what
         they are.
-        </p>
-      </div>
+      </p>
       <!-- Each card is a button. The pack front is all that shows; the back and
            the flat artwork, which is where the nutrition panel, the ingredient
            list and the barcode actually live, open in a dialog. Ben screenshotted
@@ -2739,7 +2646,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
            point of the block. -->
       <div class="fsline">
         <h3>And a bulk line that never sees a shelf.</h3>
-        <p>Not everything we make is packed for retail. A cafeteria or a central kitchen buys the same
+        <p>Not everything we make is packed for retail. A canteen or a central kitchen buys the same
           food in food service packaging: a clear bag, a printed label, no display film. The four
           packs above are the ones you would find in a freezer aisle. These nine arrive on a pallet.</p>
         <ul class="fsgrid rv rv-1by1" role="list">
@@ -2879,12 +2786,12 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
            and no caveat was added. What changed is who the sentence is
            ordering about. Rule for anything written here later: describe what
            WE publish, never what the reader should do. -->
-      <div class="section-head rv rv-seq">
+      <div class="section-head rv rv-seq" style="margin-bottom:clamp(30px,3.6vw,42px)">
         <h2>Every number here is yours to verify.</h2>
         <!-- no em-dash: house rule, and audit.py enforces it. It caught this
              line on the first run. -->
-        <p class="lede">Certificate numbers, insurance cover, recognition and the complete certified
-          menu, organised in five parts.</p>
+        <p class="lede">Twelve current documents, one JAKIM reference and 123 certified
+          dishes. All of it published in full, in five parts.</p>
       </div>
 
       <ol class="chapidx rv rv-1by1">
@@ -2912,11 +2819,10 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
              is how the section's own H2 opens twelve lines above. The numeral
              counts, the headline claims, the lede below breaks the 12 into
              10 + 2. One job each. -->
-        <div class="head-xl head-xl-inline">
+        <div class="head-xl">
           <div class="no gsweep">12</div>
           <div>
             <h3>Printed in full, not summarised.</h3>
-            <p class="lede">Ten registrations and two insurance policies, all current.</p>
           </div>
         </div>
       <!-- Was 55 words. The clause about per-site registration was explaining
@@ -2924,10 +2830,13 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
            shows the client addresses, so a reader who wonders why can see the
            answer rather than be told it in advance. Kept as a footnote under
            the table, where it answers the question at the moment it is asked. -->
+      <p class="lede" style="margin:-24px 0 34px">
+        Ten registrations and two insurance policies, all current.
+      </p>
       <!-- no .rv here: its chapter (#c-register) already reveals, and a
            table fading in inside a block that is itself fading in reads as a
            stutter rather than a settle. -->
-      <div class="tablewrap" data-scroll-hint tabindex="0" role="region" aria-label="Certificate register, scrollable">
+      <div class="tablewrap" tabindex="0" role="region" aria-label="Certificate register, scrollable">
         <table>
           <thead><tr>
             <th scope="col">Certificate</th><th scope="col">Number</th><th scope="col">Covers</th>
@@ -3054,7 +2963,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
            to the reader. It states what the table does now, which is the same
            information without telling a procurement officer how to use a
            web page. -->
-      <p class="scrollhint">On narrow screens, the register previews the remaining columns once. Swipe sideways at any time.</p>
+      <p class="scrollhint">The table scrolls sideways on a narrow screen.</p>
       <p class="asat">Register as published on 2 August 2026. Certificate scans available on request.</p>
 
       <!-- The public liability schedule carries PCK-CL055(F), the food and
@@ -3099,6 +3008,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
       <div class="chap rv" id="c-award">
         <div class="chaphead"><i>03</i><span>Recognition</span><b>Penang state, July 2022</b></div>
         <h3>An award, not just a licence.</h3>
+        <p class="lede" style="margin:0 0 clamp(24px,3vw,32px)">A licence says we are allowed to operate. This one says the state&#39;s own
+          Halal body thought we were doing something worth pointing at.</p>
       <div class="award" style="margin-top:0;background:var(--white)">
         <div class="cert"><picture>
           <source media="(max-width:640px)" srcset="./img/award-pihec-2022-sm.webp">
@@ -3127,11 +3038,6 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
           <div class="no gsweep">123</div>
           <div>
             <h3>Every dish here is on the certificate.</h3>
-            <p class="lede">
-              Nothing outside this list ever reaches a tray. It is the full scope we are certified to
-              cook rather than a daily menu: no site runs all 123, and your cafeteria’s menu is built
-              with you.
-            </p>
           </div>
         </div>
       <!-- Was 56 words, three of whose four sentences the list underneath
@@ -3152,6 +3058,12 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
            are the one thing the alphabetical JAKIM order cannot show. The old
            "All 123, in JAKIM's own order" headline is not lost - the group
            headings below carry the reference and the order is self-evident. -->
+      <p class="lede" style="margin:-24px 0 30px">
+        Nothing outside this list ever reaches a tray. It is the full scope we are certified to
+        cook rather than a daily menu: no site runs all 123, and your canteen’s menu is built
+        with you.
+      </p>
+
       <div class="cuisines"><span><em>Malay</em><i>40</i></span><span><em>Chinese</em><i>25</i></span><span><em>Indian</em><i>23</i></span><span><em>Western</em><i>6</i></span><span><em>Kuih &amp; sweets</em><i>23</i></span><span><em>Vegetarian</em><i>6</i></span></div>
       <div class="railfoot" style="margin:0 0 clamp(26px,3vw,38px)">
         <span class="sticker">Valid to 15 Mar 2028</span>
@@ -3359,8 +3271,8 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
     <div class="wall wall-side" aria-hidden="true"><img src="./img/p-salad.webp" alt="" loading="lazy" width="1200" height="560"></div>
     <div class="motif motif-soft" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="section-head rv rv-seq">
-        <h2>Running a cafeteria tender?</h2>
+      <div class="section-head rv rv-seq" style="margin-bottom:28px">
+        <h2>Running a canteen tender?</h2>
         <p class="lede">Send us the site, the headcount and the shift pattern. What comes back is a
           written proposal, not a callback asking for the same three things again.</p>
       </div>
@@ -3408,7 +3320,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
             Written proposals go out by email, so a tender enquiry is best sent there.
           </div>
           <div class="wayto">
-            <a class="wayto-a" href="mailto:exec@akoof.com?subject=Cafeteria%20enquiry">
+            <a class="wayto-a" href="mailto:exec@akoof.com?subject=Canteen%20enquiry">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z" fill="none"/><path d="M21 5H3a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1Zm-1.6 2L12 12.2 4.6 7ZM4 17V8.2l7.4 5.2a1 1 0 0 0 1.2 0L20 8.2V17Z"/></svg>
               Email the tender desk</a>
           </div>
@@ -3681,100 +3593,6 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
   var mb=document.getElementById("menuBtn"), mm=document.getElementById("mobileMenu");
   if(mb&&mm){ mb.addEventListener("click",function(){
     var o=mm.classList.toggle("open"); mb.setAttribute("aria-expanded",o?"true":"false"); }); }
-
-  /* ---- phone rails: current sites + current/past customer switcher ---- */
-  var siteRail=document.querySelector(".sites");
-  var siteButtons=[].slice.call(document.querySelectorAll("[data-site-step]"));
-  function syncSiteButtons(){
-    if(!siteRail) return;
-    var max=Math.max(0,siteRail.scrollWidth-siteRail.clientWidth);
-    siteButtons.forEach(function(btn){
-      var dir=+btn.getAttribute("data-site-step");
-      btn.disabled=dir<0 ? siteRail.scrollLeft<=3 : siteRail.scrollLeft>=max-3;
-    });
-  }
-  function moveSites(dir){
-    if(!siteRail) return;
-    var card=siteRail.querySelector(".site");
-    var gap=parseFloat(getComputedStyle(siteRail).columnGap)||0;
-    var step=card ? card.getBoundingClientRect().width+gap : siteRail.clientWidth;
-    siteRail.scrollBy({left:dir*step,behavior:smooth?"smooth":"auto"});
-  }
-  siteButtons.forEach(function(btn){
-    btn.addEventListener("click",function(){ moveSites(+btn.getAttribute("data-site-step")); });
-  });
-  if(siteRail){
-    siteRail.addEventListener("scroll",syncSiteButtons,{passive:true});
-    siteRail.addEventListener("keydown",function(e){
-      if(e.key==="ArrowLeft"||e.key==="ArrowRight"){
-        e.preventDefault(); moveSites(e.key==="ArrowLeft"?-1:1);
-      }
-    });
-    addEventListener("resize",syncSiteButtons,{passive:true});
-    syncSiteButtons();
-  }
-
-  /* ---- one-time horizontal movement hint ----
-     The current-sites rail and the certificate register both move once for
-     five seconds when they first enter view. The motion reveals that more
-     content exists, then returns to the starting position. Any touch, wheel,
-     pointer or keyboard input cancels it immediately, and reduced-motion users
-     never receive it. */
-  var scrollHintEls=[].slice.call(document.querySelectorAll("[data-scroll-hint]"));
-  function previewHorizontal(el){
-    if(!el||reduce||el.getAttribute("data-scroll-hinted")==="true") return;
-    el.setAttribute("data-scroll-hinted","true");
-    var max=Math.max(0,el.scrollWidth-el.clientWidth), start=el.scrollLeft;
-    if(max<8||Math.abs(start)>3) return;
-    var distance=Math.min(max,Math.max(64,el.clientWidth*.26));
-    var snap=el.style.scrollSnapType, raf=0, cancelled=false, began=0;
-    function restore(){ if(raf) cancelAnimationFrame(raf); el.style.scrollSnapType=snap; }
-    function cancel(){ cancelled=true; restore(); }
-    ["pointerdown","touchstart","wheel","keydown"].forEach(function(type){
-      el.addEventListener(type,cancel,{once:true,passive:type!=="keydown"});
-    });
-    el.style.scrollSnapType="none";
-    function tick(now){
-      if(cancelled) return;
-      if(!began) began=now;
-      var t=Math.min(1,(now-began)/5000);
-      var leg=t<.5?t*2:(1-t)*2;
-      var eased=.5-.5*Math.cos(Math.PI*leg);
-      el.scrollLeft=start+distance*eased;
-      if(t<1) raf=requestAnimationFrame(tick);
-      else { el.scrollLeft=start; restore(); }
-    }
-    raf=requestAnimationFrame(tick);
-  }
-  if(!reduce&&"IntersectionObserver" in window){
-    var hintObserver=new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){ hintObserver.unobserve(entry.target); previewHorizontal(entry.target); }
-      });
-    },{threshold:.1});
-    scrollHintEls.forEach(function(el){ hintObserver.observe(el); });
-  }
-
-  var clientSection=document.getElementById("clients");
-  var logoTabs=[].slice.call(document.querySelectorAll("[data-logo-tab]"));
-  var logoTiles=[].slice.call(document.querySelectorAll(".logos li[data-rel]"));
-  var logoMode=matchMedia("(max-width:640px)"), activeLogoRel="current";
-  function paintLogoGroup(){
-    var narrow=logoMode.matches;
-    if(clientSection) clientSection.classList.toggle("logo-filtered",narrow);
-    logoTiles.forEach(function(tile){
-      tile.classList.toggle("is-active-logo",!narrow||tile.getAttribute("data-rel")===activeLogoRel);
-    });
-    logoTabs.forEach(function(btn){
-      btn.setAttribute("aria-pressed",btn.getAttribute("data-logo-tab")===activeLogoRel?"true":"false");
-    });
-  }
-  logoTabs.forEach(function(btn){ btn.addEventListener("click",function(){
-    activeLogoRel=btn.getAttribute("data-logo-tab"); paintLogoGroup();
-  }); });
-  if(logoMode.addEventListener) logoMode.addEventListener("change",paintLogoGroup);
-  else if(logoMode.addListener) logoMode.addListener(paintLogoGroup);
-  paintLogoGroup();
 
   /* ---- Home and the brand: scroll, do not reload ----
      The brand and the Home links carry href="./index.html" so they stay real
